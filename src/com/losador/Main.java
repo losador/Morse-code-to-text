@@ -5,12 +5,14 @@ import com.losador.front.Window;
 
 public class Main {
 
+    private static Window window;
+
     public static void main(String[] args) {
-        Window window = new Window(600, 700);
+        window = new Window(600, 700);
         Parser parser = new Parser(window.getInputArea());
         while(true){
-            String res = parser.parseCode();
-            window.getOutputArea().setText(res);
+            String text = parser.parseCode(window.getLang());
+            window.getOutputArea().setText(text);
         }
     }
 
